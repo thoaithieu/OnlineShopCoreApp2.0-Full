@@ -13,7 +13,7 @@ namespace WebCoreApp.Data.EF.Configurations
         public override void Configure(EntityTypeBuilder<ProductTag> entity)
         {
             entity.Property(c => c.TagId).HasMaxLength(255).IsRequired()
-            .HasColumnType("varchar(50)");
+           .HasMaxLength(50).IsUnicode(false);
             // etc.
         }
     }
