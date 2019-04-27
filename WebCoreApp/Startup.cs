@@ -218,8 +218,11 @@ namespace WebCoreApp
             app.UseMinResponse();
             app.UseAuthentication();
             app.UseSession();
+
             var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
             app.UseRequestLocalization(options.Value);
+
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

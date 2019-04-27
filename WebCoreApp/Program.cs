@@ -16,7 +16,8 @@ namespace WebCoreApp
     {
         public static void Main(string[] args)
         {
-            var host = CreateWebHostBuilder(args).Build();
+            var host = BuildWebHost(args);
+            //var host = CreateWebHostBuilder(args).Build();
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
@@ -35,8 +36,14 @@ namespace WebCoreApp
             host.Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+        //public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        //    WebHost.CreateDefaultBuilder(args).UseKestrel().
+        //    UseContentRoot(Directory.GetCurrentDirectory()).
+        //    UseConfiguration(new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).
+        //        AddJsonFile("hosting.json", optional: true).Build()).UseStartup<Startup>();
+        public static IWebHost BuildWebHost(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .Build();
     }
 }

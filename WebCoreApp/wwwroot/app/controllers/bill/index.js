@@ -70,6 +70,7 @@
                 success: function (response) {
                     var data = response;
                     $('#hidId').val(data.Id);
+                    $('#hidDateCreated').val(data.DateCreated);
                     $('#txtCustomerName').val(data.CustomerName);
 
                     $('#txtCustomerAddress').val(data.CustomerAddress);
@@ -115,6 +116,7 @@
             if ($('#frmMaintainance').valid()) {
                 e.preventDefault();
                 var id = $('#hidId').val();
+                var dateCreated = $('#hidDateCreated').val();
                 var customerName = $('#txtCustomerName').val();
                 var customerAddress = $('#txtCustomerAddress').val();
                 var customerId = $('#ddlCustomerId').val();
@@ -142,6 +144,7 @@
                     data: {
                         Id: id,
                         BillStatus: billStatus,
+                        DateCreated: dateCreated,
                         CustomerAddress: customerAddress,
                         CustomerId: customerId,
                         CustomerMessage: customerMessage,
@@ -359,7 +362,7 @@
                             CustomerName: item.CustomerName,
                             Id: item.Id,
                             PaymentMethod: getPaymentMethodName(item.PaymentMethod),
-                            DateCreated: tedu.dateTimeFormatJson(item.DateCreated),
+                            DateCreated: moment(item.DateCreated).format("DD/MM/YYYY"),
                             BillStatus: getBillStatusName(item.BillStatus)
                         });
                     });

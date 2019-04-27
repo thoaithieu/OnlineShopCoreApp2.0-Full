@@ -63,6 +63,7 @@
                 success: function (response) {
                     var data = response;
                     $('#hidId').val(data.Id);
+                    $('#hidDateCreated').val(data.DateCreated);
                     $('#txtFullName').val(data.FullName);
                     $('#txtUserName').val(data.UserName);
                     $('#txtEmail').val(data.Email);
@@ -88,6 +89,7 @@
                 e.preventDefault();
 
                 var id = $('#hidId').val();
+                var dateCreated = $('#hidDateCreated').val();
                 var fullName = $('#txtFullName').val();
                 var userName = $('#txtUserName').val();
                 var password = $('#txtPassword').val();
@@ -108,6 +110,7 @@
                         FullName: fullName,
                         UserName: userName,
                         Password: password,
+                        DateCreated: dateCreated,
                         Email: email,
                         PhoneNumber: phoneNumber,
                         Status: status,
@@ -232,7 +235,7 @@
                             Id: item.Id,
                             UserName: item.UserName,
                             Avatar: item.Avatar === undefined ? '<img src="/admin-side/images/user.png" width=25 />' : '<img src="' + item.Avatar + '" width=25 />',
-                            DateCreated: tedu.dateTimeFormatJson(item.DateCreated),
+                            DateCreated: moment(item.DateCreated).format("DD/MM/YYYY"),
                             Status: tedu.getStatus(item.Status)
                         });
                     });

@@ -1,5 +1,5 @@
 ﻿<div id="modal-detail" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog  modal-lg">
+    <div class="modal-dialog  modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -10,45 +10,46 @@
                     <form class="form-horizontal" role="form" id="frmMaintainance">
                         <div class="form-group">
                             <input type="hidden" id="hidId" value="0" />
-                            <label for="txtCustomerName" class="col-sm-2 control-label ">Customer name</label>
-                            <div class="col-sm-10">
+                            <input type="hidden" id="hidDateCreated" value="date" />
+                            <label for="txtCustomerName" class="col-2 col-md-2 control-label ">Customer name</label>
+                            <div class="col-10 col-md-10">
                                 <input type="text" name="txtCustomerName" class="form-control" id="txtCustomerName">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="txtCustomerAddress" class="col-sm-2 control-label ">Address</label>
-                            <div class="col-sm-10">
+                            <label for="txtCustomerAddress" class="col-2 col-md-2 control-label ">Address</label>
+                            <div class="col-10 col-md-10">
                                 <input type="text" name="txtCustomerAddress" class="form-control" id="txtCustomerAddress" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="txtCustomerMobile" class="col-sm-2 control-label ">Phone</label>
-                            <div class="col-sm-10">
+                            <label for="txtCustomerMobile" class="col-2 col-md-2 control-label ">Phone</label>
+                            <div class="col-10 col-md-10">
                                 <input type="text" name="txtCustomerMobile" class="form-control" id="txtCustomerMobile" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="txtCustomerMessage" class="col-sm-2 control-label ">Customer message</label>
-                            <div class="col-sm-10">
+                            <label for="txtCustomerMessage" class="col-2 col-md-2 control-label ">Customer message</label>
+                            <div class="col-10 col-md-10">
                                 <input type="text" name="txtCustomerMessage" class="form-control" id="txtCustomerMessage" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label ">Payment method</label>
-                            <div class="col-sm-10">
+                            <label class="col-2 col-md-2 control-label ">Payment method</label>
+                            <div class="col-10 col-md-10">
                                 <select id="ddlPaymentMethod" class="form-control"></select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label f class="col-sm-2 control-label ">Bill status</label>
-                            <div class="col-sm-10">
+                            <label f class="col-2 col-md-2 control-label ">Bill status</label>
+                            <div class="col-10 col-md-10">
                                 <select id="ddlBillStatus" class="form-control"></select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label ">Details</label>
-                            <div class="col-sm-10">
+                            <label class="col-2 col-md-2 control-label ">Details</label>
+                            <div class="col-10 col-md-10">
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
@@ -70,11 +71,11 @@
                                 </table>
                                 <script type="x-tmpl-mustache" id="template-table-bill-details">
                                     <tr data-id="{{Id}}">
-                                        <td>{{{Products}}}</td>
+                                        <td class="col-md-4">{{{Products}}}</td>
                                         <td>{{{Colors}}}</td>
                                         <td>{{{Sizes}}}</td>
-                                        <td><input type="number" class="txtQuantity form-control" value="{{Quantity}}" /></td>
-                                        <td><button class="btn btn-xs btn-danger btn-delete-detail" type="button"><i class="fa fa-trash"></i></button></td>
+                                        <td class="col-md-1"><input type="number" class="txtQuantity form-control" value="{{Quantity}}" /></td>
+                                        <td><button class="btn  btn-danger btn-delete-detail" type="button"><i class="fa fa-trash-o"></i></button></td>
                                     </tr>
                                 </script>
                             </div>
@@ -84,12 +85,11 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <div class="col-sm-offset-2 col-sm-10">
+                <div class="col-sm-offset-2 col-10 col-md-10">
                     <button type="button" id="btnSave" class="btn btn-success">Save</button>
-                    <button type="button" id="btnConfirm" class="btn btn-success">Confirm payment</button>
+                    <button type="button" id="btnConfirm" class="btn btn-info">Confirm payment</button>
                     <button type="button" id="btnPending" class="btn btn-warning">Pending</button>
                     <button type="button" id="btnCancel" class="btn btn-primary">Cancel</button>
-                    <button type="button" id="btnExport" class="btn btn-default">Export</button>
 
                     <button type="button" data-dismiss="modal" class="btn btn-danger">Close</button>
                 </div>

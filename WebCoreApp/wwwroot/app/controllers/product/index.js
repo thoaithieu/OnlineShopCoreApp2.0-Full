@@ -113,7 +113,7 @@
                     $('#txtSeoPageTitleM').val(data.SeoPageTitle);
                     $('#txtSeoAliasM').val(data.SeoAlias);
 
-                    CKEDITOR.instances.txtContent.setData(data.Content);
+                    try { CKEDITOR.instances.txtContent.setData(data.Content) } catch (ex) { };
                     $('#ckStatusM').prop('checked', data.Status == 1);
                     $('#ckHotM').prop('checked', data.HotFlag);
                     $('#ckShowHomeM').prop('checked', data.HomeFlag);
@@ -158,8 +158,8 @@
             if ($('#frmMaintainance').valid()) {
                 e.preventDefault();
                 var id = $('#hidIdM').val();
-                var dateCreated = $('#hidDateCreated').val();
                 var name = $('#txtNameM').val();
+                var dateCreated = $('#hidDateCreated').val();
                 var categoryId = $('#ddlCategoryIdM').combotree('getValue');
 
                 var description = $('#txtDescM').val();
@@ -177,7 +177,7 @@
                 var seoPageTitle = $('#txtSeoPageTitleM').val();
                 var seoAlias = $('#txtSeoAliasM').val();
 
-                var content = CKEDITOR.instances.txtContent.getData();
+                try { var content = CKEDITOR.instances.txtContent.getData() } catch (ex) { };
                 var status = $('#ckStatusM').prop('checked') == true ? 1 : 0;
                 var hot = $('#ckHotM').prop('checked');
                 var showHome = $('#ckShowHomeM').prop('checked');
@@ -299,11 +299,11 @@
 
     }
 
-    
 
-    
 
-    
+
+
+
 
     function initTreeDropDownCategory(selectedId) {
         $.ajax({
@@ -359,7 +359,9 @@
         try {
             CKEDITOR.instances.txtContentM.setData('')
         }
-        catch (err) { };
+        catch (err) {
+
+        };
         $('#ckStatusM').prop('checked', true);
         $('#ckHotM').prop('checked', false);
         $('#ckShowHomeM').prop('checked', false);
