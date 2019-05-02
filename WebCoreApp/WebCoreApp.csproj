@@ -6,6 +6,10 @@
     <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Remove="Resources\Views\Product\Details.en-US.resx" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.1.1" />
@@ -35,6 +39,10 @@
 
   <ItemGroup>
     <Folder Include="Resources\Views\Home\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\Views\Product\Details.en-US.resx" />
   </ItemGroup>
 
 </Project>

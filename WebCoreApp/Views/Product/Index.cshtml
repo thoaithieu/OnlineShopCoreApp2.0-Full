@@ -1,4 +1,5 @@
-﻿@model List<WebCoreApp.Application.ViewModels.Product.ProductCategoryViewModel>
+﻿@inject IViewLocalizer Localizer
+@model List<WebCoreApp.Application.ViewModels.Product.ProductCategoryViewModel>
 @{
     ViewData["Title"] = "All product  categories";
     ViewData["MetaDescription"] = "All our products";
@@ -10,8 +11,8 @@
         <div class="row">
             <div class="col-xs-12">
                 <ul>
-                    <li class="home"> <a title="Go to Home Page" href="/">Home</a><span>&raquo;</span></li>
-                    <li><strong>Product categories</strong></li>
+                    <li class="home"> <a title="Go to Home Page" href="/">@Localizer["Home"]</a><span>&raquo;</span></li>
+                    <li><strong>@Localizer["Productcategories"]</strong></li>
                 </ul>
             </div>
         </div>
@@ -25,7 +26,7 @@
             <div class="col-main col-sm-12 col-xs-12">
                 <div class="shop-inner">
                     <div class="page-title">
-                        <h2>Product categories</h2>
+                        <h2>@Localizer["Productcategories"]</h2>
                     </div>
 
                     <div class="product-grid-area">
@@ -37,8 +38,8 @@
                                     <div class="product-item">
                                         <div class="item-inner">
                                             <div class="product-thumbnail">
-                                                <div class="icon-sale-label sale-left">Sale</div>
-                                                <div class="icon-new-label new-right">New</div>
+                                                <div class="icon-sale-label sale-left">@Localizer["Sale"]</div>
+                                                <div class="icon-new-label new-right">@Localizer["New"]</div>
                                                 <div class="pr-img-area">
                                                     <a title="@item.Name" href="@url">
                                                         <figure> <img class="first-img" src="@item.Image" alt="@item.Name"> <img class="hover-img" src="@item.Image" alt="@item.Name"></figure>
